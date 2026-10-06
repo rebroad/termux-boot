@@ -12,6 +12,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         tools:ignore="GoogleAppIndexingWarning">
+        <meta-data android:name="com.termux.GIT_COMMIT" android:value="${TERMUX_GIT_COMMIT}" />
         <activity android:name=".BootActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
