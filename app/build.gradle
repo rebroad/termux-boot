@@ -23,8 +23,8 @@ android {
         applicationId "com.termux.boot"
         minSdk project.properties.minSdkVersion.toInteger()
         targetSdk project.properties.targetSdkVersion.toInteger()
-        versionCode 1000
-        versionName "0.8.1"
+        versionCode 1001
+        versionName "0.8.1-rebroad.1"
 
         manifestPlaceholders.TERMUX_GIT_COMMIT = gitCommit
 
@@ -55,6 +55,7 @@ android {
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             if (rebroadSigningEnabled) signingConfig signingConfigs.rebroad
+            else if (System.getenv("TERMUX_CI_TEST_KEY_SIGNING") == "1") signingConfig signingConfigs.debug
         }
 
         debug {
